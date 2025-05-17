@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>MTG Color Combos</title>
+  <style>
+    body { font-family: sans-serif; padding: 2rem; background: #f4f4f8; }
+    .tabs { display: flex; gap: 1rem; margin-bottom: 2rem; }
+    .tab-button {
+      padding: 0.5rem 1rem;
+      background: #ddd; border: none; border-radius: 4px;
+      cursor: pointer;
+    }
+    .tab-button.active { background: #928dab; color: white; }
+    .combo-container { display: none; }
+    .combo-container.active { display: grid; }
+    .combo-container {
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+    }
+    .card {
+      background: white; border-radius: 8px; padding: 1rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: transform .2s, box-shadow .2s;
+      text-align: center;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    .card a { font-weight: 600; color: #1f1c2c; text-decoration: none; }
+    .card span { display: block; margin-top: .5rem; font-size: .85rem; color: #666; }
+  </style>
+</head>
+<body>
+
+  <div class="tabs">
+    <button class="tab-button active" data-target="two-color">Two-Color</button>
+    <button class="tab-button"        data-target="three-color">Three-Color</button>
+  </div>
+
+  <!-- Two-color cards -->
+  <div id="two-color" class="combo-container active">
+    <!-- example Rakdos card -->
+    <div class="card">
+      <a href="https://scryfall.com/random?as=grid&order=name&q=(type:creature type:legendary)+color=BR+(game:paper)+legal:standard">
+        Commanderk<span>Rakdos Colors</span>
+      </a>
+    </div>
+    <!-- insert the other 9 two-color cards here -->
+  </div>
+
+  <!-- Three-color cards -->
+  <div id="three-color" class="combo-container">
+    <div class="card">
+      <a href="https://scryfall.com/random?as=grid&order=name&q=(type:creature type:legendary)+color=WUG+(game:paper)+legal:standard">
+        Commanderk<span>Bant Colors</span>
+      </a>
+    </div>
+    <!-- insert the other 9 three-color cards here -->
+  </div>
+
+  <script>
+    const tabs = document.querySelectorAll('.tab-button');
+    tabs.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // deactivate all tabs & containers
+        tabs.forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.combo-container')
+                .forEach(c => c.classList.remove('active'));
+        // activate clicked tab and its target container
+        btn.classList.add('active');
+        document.getElementById(btn.dataset.target)
+                .classList.add('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
