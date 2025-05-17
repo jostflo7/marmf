@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MTG Format Links</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f8;
+      color: #333;
+      line-height: 1.5;
+    }
+
+    header {
+      background: linear-gradient(90deg, #1f1c2c, #928dab);
+      color: white;
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    main {
+      padding: 2rem;
+      max-width: 960px;
+      margin: auto;
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    section h2 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    section h2::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 50%;
+      height: 4px;
+      background: #928dab;
+      border-radius: 2px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform .2s, box-shadow .2s;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .card a {
+      display: block;
+      color: #1f1c2c;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .card a span {
+      display: block;
+      margin-top: .5rem;
+      font-size: .85rem;
+      color: #666;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem 0;
+      font-size: .9rem;
+      color: #777;
+    }
+
+    /* grid and card styling (your existing rules) */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+    }
+
+    .card a {
+      display: block;
+      padding: 0.75rem;
+      border-radius: 6px;
+      text-decoration: none;
+      color: #222;
+      border: 1px solid transparent;
+      transition: background-color 0.2s, border-color 0.2s;
+    }
+
+    .card a span {
+      display: block;
+      font-size: 0.85rem;
+      color: #555;
+      margin-top: 0.25rem;
+    }
+
+    /* rarity classes */
+    .rarity-common {
+      background-color: rgba(128, 128, 128, 0.1);
+      /* pale gray */
+      border-color: rgba(128, 128, 128, 0.3);
+    }
+
+    .rarity-uncommon {
+      background-color: rgba(0, 128, 0, 0.1);
+      /* pale green */
+      border-color: rgba(0, 128, 0, 0.3);
+    }
+
+    .rarity-rare {
+      background-color: rgba(212, 175, 55, 0.1);
+      /* pale gold */
+      border-color: rgba(212, 175, 55, 0.4);
+    }
+
+    .rarity-mythic {
+      background-color: rgba(163, 53, 238, 0.1);
+      /* pale purple */
+      border-color: rgba(163, 53, 238, 0.4);
+    }
+
+    /* hover effect */
+    .card a:hover {
+      filter: brightness(0.95);
+    }
+
+    .controls {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    .controls>div {
+      display: flex;
+      flex-direction: column;
+      flex: 1 1 200px;
+    }
+
+    .controls label {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #444;
+      margin-bottom: 0.3rem;
+    }
+
+    .controls select {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 0.5rem;
+      padding: 0.6rem 1rem;
+      font-size: 1rem;
+      line-height: 1.2;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2210%22%20height%3D%227%22%20viewBox%3D%220%200%2010%207%22%20xmlns%3D%22http://www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M0%200l5%207l5-7z%22%20fill%3D%22%23666%22/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.8rem center;
+    }
+
+    .controls select:hover {
+      border-color: #999;
+    }
+
+    .controls select:focus {
+      outline: none;
+      border-color: #666;
+      box-shadow: 0 0 0 3px rgba(100, 100, 255, 0.2);
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>M.A.R.M.F Randomiser Links</h1>
+  </header>
+  <main>
+
+    <section id="standard">
+      <h2>Standard</h2>
+      <div class="grid">
+        <div class="card rarity-common">
+          <a href="https://scryfall.com/random?as=grid&order=name&q=(game:paper)+legal:standard">
+            Randomiser Link
+            <span>No Power Ups</span>
+          </a>
+        </div>
+        <div class="card rarity-mythic">
+          <a href="https://scryfall.com/random?as=grid&order=name&q=(game:paper)+legal:standard+rarity:m">
+            Randomiser Link
+            <span>Mythic Power Up</span>
+          </a>
+        </div>
+        <div class="card rarity-rare">
+          <a href="https://scryfall.com/random?as=grid&order=name&q=(game:paper)+legal:standard+rarity:r">
+            Randomiser Link
+            <span>Rare Power Up</span>
+          </a>
+        </div>
+        <div class="card rarity-uncommon">
+          <a href="https://scryfall.com/random?as=grid&order=name&q=(game:paper)+legal:standard+rarity:u">
+            Randomiser Link
+            <span>Uncommon Power Up</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="pioneer">
+      <h2>Pioneer</h2>
+      <div class="grid">
+        <div class="card rarity-common">
+          <a href="https://scryfall.com/random?as=grid&order=name&q=(game:paper)+legal:pioneer">
+            Randomiser Link
+            <span>No Power Ups</span>
+          </a>
+        </div>
+        <div class="card rarity-mythic">
+          <a href="https://scryfall.com/random?as=grid&order=name&q=(game:paper)+legal:pioneer+rarity:m">
+            Randomiser Link
+            <span>Mythic Power Up</span>
+          </a>
+        </div>
+        <div class="card rarity-rare">
+          <a href="https://scryfall.com/random?as=grid&order=name&q=(game:paper)+legal:pioneer+rarity:r">
+            Randomiser Link
+            <span>Rare Power Up</span>
+          </a>
+        </div>
+        <div class="card rarity-uncommon">
+          <a href="https://scryfall.com/random?as=grid&order=name&q=(game:paper)+legal:pioneer+rarity:u">
+            Randomiser Link
+            <span>Uncommon Power Up</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="pauper">
+      <h2>Pauper</h2>
+      <div class="grid">
+        <div class="card rarity-common">
+          <a href="https://scryfall.com/random?as=grid&order=name&q=(game:paper)+legal:pauper">
+            Randomiser Link
+            <span>No Power Ups</span>
+          </a>
+        </div>
+        <div class="card rarity-mythic">
+          <a href="https://scryfall.com/random?as=grid&order=name&q=(game:paper)+legal:pauper+rarity:m">
+            Randomiser Link
+            <span>Mythic Power Up</span>
+          </a>
+        </div>
+        <div class="card rarity-rare">
+          <a href="https://scryfall.com/random?as=grid&order=name&q=(game:paper)+legal:pauper+rarity:r">
+            Randomiser Link
+            <span>Rare Power Up</span>
+          </a>
+        </div>
+        <div class="card rarity-uncommon">
+          <a href="https://scryfall.com/random?as=grid&order=name&q=(game:paper)+legal:pauper+rarity:u">
+            Randomiser Link
+            <span>Uncommon Power Up</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="modern">
+      <h2>Modern</h2>
+      <div class="grid">
+        <div class="card rarity-common">
+          <a href="https://scryfall.com/random?as=grid&order=name&q=(game:paper)+legal:modern">
+            Randomiser Link
+            <span>No Power Ups</span>
+          </a>
+        </div>
+        <div class="card rarity-mythic">
+          <a href="https://scryfall.com/random?as=grid&order=name&q=(game:paper)+legal:modern+rarity:m">
+            Randomiser Link
+            <span>Mythic Power Up</span>
+          </a>
+        </div>
+        <div class="card rarity-rare">
+          <a href="https://scryfall.com/random?as=grid&order=name&q=(game:paper)+legal:modern+rarity:r">
+            Randomiser Link
+            <span>Rare Power Up</span>
+          </a>
+        </div>
+        <div class="card rarity-uncommon">
+          <a href="https://scryfall.com/random?as=grid&order=name&q=(game:paper)+legal:modern+rarity:u">
+            Randomiser Link
+            <span>Uncommon Power Up</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="legacy">
+      <h2>Legacy</h2>
+      <div class="grid">
+        <div class="card rarity-common">
+          <a href="https://scryfall.com/random?as=grid&order=name&q=(game:paper)+legal:legacy">
+            Randomiser Link
+            <span>No Power Ups</span>
+          </a>
+        </div>
+        <div class="card rarity-mythic">
+          <a href="https://scryfall.com/random?as=grid&order=name&q=(game:paper)+legal:legacy+rarity:m">
+            Randomiser Link
+            <span>Mythic Power Up</span>
+          </a>
+        </div>
+        <div class="card rarity-rare">
+          <a href="https://scryfall.com/random?as=grid&order=name&q=(game:paper)+legal:legacy+rarity:r">
+            Randomiser Link
+            <span>Rare Power Up</span>
+          </a>
+        </div>
+        <div class="card rarity-uncommon">
+          <a href="https://scryfall.com/random?as=grid&order=name&q=(game:paper)+legal:legacy+rarity:u">
+            Randomiser Link
+            <span>Uncommon Power Up</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="commander">
+      <h2>Commander Power Up</h2>
+
+      <div class="controls">
+        <div>
+          <label for="format-select">Format:</label>
+          <select id="format-select">
+            <option value="standard">Standard</option>
+            <option value="pioneer">Pioneer</option>
+            <option value="pauper">Pauper</option>
+            <option value="modern">Modern</option>
+            <option value="legacy">Legacy</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="color-select">Colors:</label>
+          <select id="color-select">
+            <option value="mono">Mono-color</option>
+            <option value="two">Two-color (Guilds)</option>
+            <option value="three">Three-color (Shards/Wedges)</option>
+            <option value="fourplus">Four-plus colors</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="cards-container" class="cards"></div>
+
+      <script>
+        // exact swatch colors for each mana symbol
+        const letterRGB = {
+          W: [255, 255, 200],   // light pale yellow instead of white
+          U: [0, 0, 255],
+          B: [0, 0, 0],
+          R: [255, 0, 0],
+          G: [0, 128, 0]
+        };
+
+        // friendly names + codes
+        const colorSets = {
+          mono: [
+            { code: "W", name: "White" },
+            { code: "U", name: "Blue" },
+            { code: "B", name: "Black" },
+            { code: "R", name: "Red" },
+            { code: "G", name: "Green" }
+          ],
+          two: [
+            { code: "WU", name: "Azorius" },
+            { code: "WB", name: "Orzhov" },
+            { code: "WR", name: "Boros" },
+            { code: "WG", name: "Selesnya" },
+            { code: "UB", name: "Dimir" },
+            { code: "UR", name: "Izzet" },
+            { code: "UG", name: "Simic" },
+            { code: "BR", name: "Rakdos" },
+            { code: "BG", name: "Golgari" },
+            { code: "RG", name: "Gruul" }
+          ],
+          three: [
+            { code: "WUB", name: "Esper" },
+            { code: "WUR", name: "Jeskai" },
+            { code: "WUG", name: "Bant" },
+            { code: "WBR", name: "Mardu" },
+            { code: "WBG", name: "Abzan" },
+            { code: "WRG", name: "Naya" },
+            { code: "UBR", name: "Grixis" },
+            { code: "UBG", name: "Sultai" },
+            { code: "URG", name: "Temur" },
+            { code: "BRG", name: "Jund" }
+          ],
+          fourplus: [
+            { code: "WUBR", name: "Sans Green" },
+            { code: "WUBG", name: "Sans Red" },
+            { code: "WURG", name: "Sans Black" },
+            { code: "WBRG", name: "Sans Blue" },
+            { code: "UBRG", name: "Sans White" },
+            { code: "WUBRG", name: "Five-Color" }
+          ]
+        };
+
+        const fmtSelect = document.getElementById('format-select');
+        const clrSelect = document.getElementById('color-select');
+        const container = document.getElementById('cards-container');
+
+        function capitalize(str) {
+          return str.charAt(0).toUpperCase() + str.slice(1);
+        }
+
+        function generateCards() {
+          const fmt = fmtSelect.value;
+          const group = colorSets[clrSelect.value];
+          container.innerHTML = '';
+
+          group.slice(0, 10).forEach(({ code, name }) => {
+            const href = `https://scryfall.com/random?as=grid&order=name`
+              + `&q=(type:creature+type:legendary)+color=${code}`
+              + `+(game:paper)+legal:${fmt}`;
+
+            // build swatches
+            const swatches = code.split('').map(ch => {
+              const [r, g, b] = letterRGB[ch];
+              return `<span class="swatch" style="
+                        background-color: rgb(${r},${g},${b});
+                        border: 1px solid rgba(${r},${g},${b},0.5);
+                      "></span>`;
+            }).join('');
+
+            // single .card anchor
+            const a = document.createElement('a');
+            a.className = 'card';
+            a.href = href;
+            a.target = '_blank';
+            a.innerHTML = `
+              <div class="swatches">${swatches}</div>
+              <div class="text">
+                ${name} Commander
+                <span>${name} in ${capitalize(fmt)}</span>
+              </div>
+            `;
+
+            container.appendChild(a);
+          });
+        }
+
+        fmtSelect.addEventListener('change', generateCards);
+        clrSelect.addEventListener('change', generateCards);
+
+        // initial
+        generateCards();
+      </script>
+
+      <style>
+        .cards {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+          gap: 1rem;
+        }
+
+        .card {
+          display: block;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          text-decoration: none;
+          color: #000;
+          overflow: hidden;
+        }
+
+        .swatches {
+          display: flex;
+        }
+
+        .swatch {
+          flex: 1;
+          height: 8px;
+        }
+
+        .text {
+          padding: 0.5rem;
+          text-align: center;
+        }
+
+        .text span {
+          display: block;
+          font-size: 0.85em;
+          color: #444;
+        }
+      </style>
+    </section>
+
+  </main>
+
+  <footer>
+    © 2025 M.A.R.M.F — Crafted with ❤️ for Magic: The Gathering
+  </footer>
+</body>
+
+</html>
